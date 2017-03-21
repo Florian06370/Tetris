@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.BlokusController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="application/ressources/blokusbg.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffcc" height="359.0" layoutX="36.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="528.0" />
+      <Text layoutX="49.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Each player chooses a color and places that set of 21 pieces in front of his/her side of the board.  The order of play is as follows: blue, yellow, red, and then green.&#10;- The first player (blue) places any of his/her pieces in a corner square.  Play proceeds clockwise around the board (yellow, red, and green), each player putting their first piece down in one of the corner squares.&#10;- Play continues as each player lays down one piece during a turn.&#10;      Each new piece must touch at least one other piece of the same color, but only at the corners.&#10;      No flat edges of same color pieces can touch.&#10;      There are no restrictions on how pieces of different colors can touch one another.&#10;- Whenever a player is unable to place one of his/her remaining pieces on the board, that player must pass his/her turn." wrappingWidth="502.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text layoutX="49.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gameplay">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

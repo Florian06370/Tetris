@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TetrisController">
+   <children>
+      <Label layoutX="419.0" layoutY="467.0" text="Score :" AnchorPane.bottomAnchor="99.0" AnchorPane.rightAnchor="113.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbScore" layoutX="501.0" layoutY="467.0" text="Label" AnchorPane.bottomAnchor="99.0" AnchorPane.rightAnchor="30.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="418.0" layoutY="516.0" text="Niveau : " AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="93.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNiveau" layoutX="515.0" layoutY="516.0" text="Label" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="30.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="452.0" layoutY="49.0" text="Prochain" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="49.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="gridView" layoutX="40.0" layoutY="37.0" prefHeight="524.0" prefWidth="344.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="216.0" AnchorPane.topAnchor="37.0" />
+      <GridPane fx:id="gridProchain" layoutX="434.0" layoutY="97.0" prefHeight="118.0" prefWidth="123.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="97.0" />
+   </children>
+</AnchorPane>
