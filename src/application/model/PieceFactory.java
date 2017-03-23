@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 public class PieceFactory {
 
+    
+    /**
+     * Creation des pieces 
+     * @param name
+     * @return Piece
+     */
 	public static Piece getPiece(String name) {
 
 		ArrayList<int[]> coord = new ArrayList<int[]>();

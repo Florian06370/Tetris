@@ -12,10 +12,12 @@ public class Piece {
 	
 	private String color;
 	
+        //Piece défini par ses coordonnées
 	public Piece(ArrayList<int[]> coord){
 		this.coord = coord;
 	}
 	
+    //Fonctions de deplacement des pieces
 	public ArrayList<int[]> toLeft(){
 		ArrayList<int[]> left = new ArrayList<int[]>();
 
@@ -99,6 +101,8 @@ public class Piece {
 		return rotate;
 	}
 
+        
+        //GETTER & SETTER
 	public ArrayList<int[]> getCoord() {
 		return coord;
 	}

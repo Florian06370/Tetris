@@ -18,17 +18,17 @@ public class Tetris {
 	/**
 	 * Matrice de la grille
 	 */
-	private Piece[][] grid;
+	private Piece[][] grid;     //grille du jeu
 
-	private Piece[][] gridProchain;
+	private Piece[][] gridProchain;     //grille de la prochaine piece
 
-	private Piece nextPiece;
+	private Piece nextPiece;    //Piece suivante
 
-	private Piece moveablePiece;
+	private Piece moveablePiece;  //Pieces qui peuvent avoir un mouvement
 
-	private ArrayList<Piece> unmoveablePiece;
+	private ArrayList<Piece> unmoveablePiece;   //Pieces qui ne devront plus bouger
 
-	private String[] pieces = { "S", "Z", "L", "J", "T", "O", "I" };
+	private String[] pieces = { "S", "Z", "L", "J", "T", "O", "I" };    //Tableau de toutes les pieces disponibles
 
 	private int score;
 
@@ -38,25 +38,30 @@ public class Tetris {
 
 	private TetrisController observer;
 
-	private Timeline timeline;
+	private Timeline timeline;  //Temps pour savoir quand arreter d'envoyer des pieces dans le jeu
 
 	public Tetris() {
+                //grille du jeu
 		this.grid = new Piece[20][10];
-
+                
+                //grille ou apparait la prochaine piece
 		this.gridProchain = new Piece[4][4];
 
+                //Selection de la piece suivante (aleatoirement)
 		int rnd = new Random().nextInt(pieces.length);
-		this.nextPiece = PieceFactory.getPiece(pieces[rnd]); // Selection
+		this.nextPiece = PieceFactory.getPiece(pieces[rnd]); 
 																// aleatoire de
 																// la piece
-
+                //on affiche la piece suivante dans la grille prevu                                                                                                                
 		for (int[] coord : nextPiece.getCoord()) {
 			gridProchain[coord[0]][coord[1]] = nextPiece;
 		}
 
+                // choix d'une piece aleatoire
 		rnd = new Random().nextInt(pieces.length);
 		this.moveablePiece = PieceFactory.getPiece(pieces[rnd]);
 
+                //on affiche la piece dans la grille du jeu
 		for (int[] coord : moveablePiece.getCoord()) {
 			grid[coord[0]][coord[1]] = moveablePiece;
 		}
@@ -84,6 +89,8 @@ public class Tetris {
 	 * Logique du jeu
 	 */
 	public void logic() {
+            
+                //des que l'on a perdu on stop le jeu
 		if (checkGameOver()) {
 			gameOver = true;
 			timeline.stop();
@@ -94,13 +101,19 @@ public class Tetris {
 			if (checkPosition(newCoord)) {
 				changeCoord(newCoord);
 			} else {
+                            
+                                //On ajoute la piece qui est arrive en bas dans les pieces fixes
 				unmoveablePiece.add(moveablePiece);
+                                
+                                //On indique que la piece suivante peu maintenant se deplacer
 				moveablePiece = nextPiece;
 
 				checkRow();
 
 				boolean stop = false;
 
+                                //On arrete le jeu si il n'ya plus de place pour une nouvelle piece (game over)
+                                //sinon on place la nouvelle piece sur le plateau de jeu
 				for (int[] coord : moveablePiece.getCoord()) {
 					if (grid[coord[0]][coord[1]] != null) {
 						stop = true;
@@ -110,10 +123,12 @@ public class Tetris {
 						grid[coord[0]][coord[1]] = moveablePiece;
 					}
 				}
-
+                                
+                                //On prend une nouvelle piece suivante random
 				int rnd = new Random().nextInt(pieces.length);
 				nextPiece = PieceFactory.getPiece(pieces[rnd]);
 
+                                //On place la nouvelle piece suivante a l'endroit prevu
 				gridProchain = new Piece[4][4];
 
 				for (int[] coord : nextPiece.getCoord()) {
@@ -125,6 +140,8 @@ public class Tetris {
 		notifyObserver();
 	}
 
+        
+        //On configure les touches du clavier
 	public void handleKeyPressed(KeyCode keyCode) {
 		if (!isGameOver()) {
 			ArrayList<int[]> newCoord = moveablePiece.getCoord();
@@ -154,8 +171,9 @@ public class Tetris {
 		}
 	}
 
-	// Méthodes privées nécessaire à la logique du jeu
+// Méthodes privées nécessaire à la logique du jeu
 
+        //verification si une ligne est pleine => supprimer la ligne
 	private void checkRow() {
 		boolean lignePleine = false;
 		for (int i = grid.length - 1; i >= 0; i--) {
@@ -173,6 +191,7 @@ public class Tetris {
 		}
 	}
 
+        //fonction pour supprimer chaque case de la ligne et faire descendre la ligne du dessus (et up le score)
 	private void supprimerLigne(int indice) {
 		for (int i = indice; i >= 0; i--) {
 			for (int j = 0; j < grid[0].length && i > 0; j++) {
@@ -191,6 +210,7 @@ public class Tetris {
 		}
 	}
 
+        //fonction pour savoir si la partie est fini (perdu) 
 	private boolean checkGameOver() {
 		for (int j = 0; j < grid[0].length; j++) {
 			if (grid[0][j] instanceof Piece && grid[0][j] != moveablePiece) {
@@ -200,6 +220,7 @@ public class Tetris {
 		return false;
 	}
 
+        //changer les coordonnees d'une piece
 	private void changeCoord(ArrayList<int[]> coords) {
 		for (int[] coord : moveablePiece.getCoord()) {
 			grid[coord[0]][coord[1]] = null;
@@ -212,6 +233,8 @@ public class Tetris {
 		moveablePiece.setCoord(coords);
 	}
 
+        
+        //Verification si la piece peut se deplacer. Sinon return false
 	private boolean checkPosition(ArrayList<int[]> newCoord) {
 		for (int[] coord : newCoord) {
 			if (coord[0] < 0 || coord[0] >= grid.length) {
