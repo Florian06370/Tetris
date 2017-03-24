@@ -62,7 +62,7 @@ public class TetrisController implements Initializable {
 
 		labels = new Label[game.getGrid().length][game.getGrid()[0].length];
 
-		for (int i = 0; i < game.getGrid().length; i++) {
+		for (int i = 0; i < game.getGrid().length; i++) {               //affiche les textes (labels)
 			for (int j = 0; j < game.getGrid()[0].length; j++) {
 				Label label = new Label();
 				label.setPrefHeight(height);
