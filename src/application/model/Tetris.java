@@ -275,6 +275,10 @@ public class Tetris {
 	public String getNiveau() {
 		return String.valueOf(niveau);
 	}
+        
+        public Timeline getTimeline(){
+                return timeline;
+        }
 
 	public boolean isGameOver() {
 		return gameOver;

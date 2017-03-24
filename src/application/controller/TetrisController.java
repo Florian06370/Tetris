@@ -105,13 +105,19 @@ public class TetrisController implements Initializable {
 	}
 
 	public void update() {
-
+                
+                //Si la partie est finie, affiche une page game over
 		if (game.isGameOver()) {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Tetris");
 			alert.setHeaderText("GAME OVER");
 			alert.show();
-		} else {                                                                            //actualise la grille de jeu
+		} 
+                
+                
+                else {     
+                    
+                        //actualise la grille de jeu
 			for (int i = 0; i < game.getGrid().length; i++) {
 				for (int j = 0; j < game.getGrid()[0].length; j++) {
 					if (game.getGrid()[i][j] != null) {
@@ -122,8 +128,10 @@ public class TetrisController implements Initializable {
 					}
 				}
 			}
-
-			for (int i = 0; i < game.getGridProchain().length; i++) {               //actualise la grille de la prochaine piece
+                        
+                        
+                        //actualise la grille de la prochaine piece
+			for (int i = 0; i < game.getGridProchain().length; i++) {               
 				for (int j = 0; j < game.getGridProchain()[0].length; j++) {
 					if (game.getGridProchain()[i][j] != null) {
 						labelsProchain[i][j].setStyle("-fx-border-color:grey;-fx-background-color:"
@@ -139,7 +147,20 @@ public class TetrisController implements Initializable {
 			lbNiveau.setText(game.getNiveau());
 		}
 	}
+        
+        
+        @FXML
+        public void handleLaunchLibrairie(){
+                game.getTimeline().stop();
+                main.showLirairie();
+        }
 
+        @FXML
+	public void handleLaunchTetris(){
+                game.getTimeline().stop();
+		main.showTetris();
+	}
+        
 	public void setMain(Main main) {
 		this.main = main;
 	}

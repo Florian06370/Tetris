@@ -59,7 +59,9 @@ public class Main extends Application {
 
 			LibrairieController controller = loader.getController();
 			controller.setMain(this);
-
+                        
+                        this.setSize(librairie);
+                        
 			rootLayout.setCenter(librairie);
 		} catch (Exception e) {
 			e.printStackTrace();
