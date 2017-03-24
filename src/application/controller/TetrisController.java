@@ -111,7 +111,7 @@ public class TetrisController implements Initializable {
 			alert.setTitle("Tetris");
 			alert.setHeaderText("GAME OVER");
 			alert.show();
-		} else {
+		} else {                                                                            //actualise la grille de jeu
 			for (int i = 0; i < game.getGrid().length; i++) {
 				for (int j = 0; j < game.getGrid()[0].length; j++) {
 					if (game.getGrid()[i][j] != null) {
@@ -123,7 +123,7 @@ public class TetrisController implements Initializable {
 				}
 			}
 
-			for (int i = 0; i < game.getGridProchain().length; i++) {
+			for (int i = 0; i < game.getGridProchain().length; i++) {               //actualise la grille de la prochaine piece
 				for (int j = 0; j < game.getGridProchain()[0].length; j++) {
 					if (game.getGridProchain()[i][j] != null) {
 						labelsProchain[i][j].setStyle("-fx-border-color:grey;-fx-background-color:"

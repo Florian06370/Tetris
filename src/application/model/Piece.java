@@ -12,7 +12,7 @@ public class Piece {
 	
 	private String color;
 	
-        //Piece défini par ses coordonnées
+        //Piece définie par ses coordonnées
 	public Piece(ArrayList<int[]> coord){
 		this.coord = coord;
 	}
