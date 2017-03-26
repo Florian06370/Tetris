@@ -108,6 +108,7 @@ public class Tetris {
                                 //On indique que la piece suivante peu maintenant se deplacer
 				moveablePiece = nextPiece;
 
+                                //si une ligne est pleine on la supprime
 				checkRow();
 
 				boolean stop = false;

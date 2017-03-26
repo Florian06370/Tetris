@@ -78,6 +78,15 @@ public class PieceFactory {
 			piece.setPivot(coord.get(3));
 			piece.setColor("cyan");
 			return piece;
+                case "i":
+                        coord.add(new int[]{0,0});
+                        coord.add(new int[]{1,0});
+			coord.add(new int[]{2,0});
+                        
+                case "bbi":
+                        coord.add(new int[]{0,0});
+                        coord.add(new int[]{1,0});
+                        
 		}
 		return null;
 	}
