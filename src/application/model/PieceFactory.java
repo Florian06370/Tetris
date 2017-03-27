@@ -34,10 +34,10 @@ public class PieceFactory {
 			piece.setColor("blue");
 			return piece;
 		case "J":
+			coord.add(new int[]{0,0});
 			coord.add(new int[]{0,1});
 			coord.add(new int[]{0,2});
-			coord.add(new int[]{0,3});
-			coord.add(new int[]{1,3});
+			coord.add(new int[]{1,2});
 			piece = new Piece(coord);
 			piece.setPivot(coord.get(2));
 			piece.setColor("orange");

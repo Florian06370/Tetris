@@ -28,7 +28,7 @@ public class Tetris {
 
 	private ArrayList<Piece> unmoveablePiece;   //Pieces qui ne devront plus bouger
 
-	private String[] pieces = { "S", "Z", "L", "J", "T", "O", "I" };    //Tableau de toutes les pieces disponibles
+	private String[] pieces = { "S", "Z", "L", "J", "T", "O", "I"};    //Tableau de toutes les pieces disponibles
 
 	private int score;
 
@@ -148,19 +148,19 @@ public class Tetris {
 			ArrayList<int[]> newCoord = moveablePiece.getCoord();
 
 			switch (keyCode) {
-			case UP:
+                            case CONTROL:
 				newCoord = moveablePiece.rotate();
 				break;
-			case LEFT:
+                            case LEFT:
 				newCoord = moveablePiece.toLeft();
 				break;
-			case RIGHT:
+                            case RIGHT:
 				newCoord = moveablePiece.toRight();
 				break;
-			case DOWN:
+                            case DOWN:
 				newCoord = moveablePiece.toDown();
 				break;
-			default:
+                            default:
 				return;
 			}
 
