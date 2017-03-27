@@ -48,7 +48,7 @@ public class BlokusController {
     @FXML
     private void quitBtnAction(){
         Stage stage = (Stage) quitBtn.getScene().getWindow();
-    stage.close();
+        stage.close();
     }
     
     

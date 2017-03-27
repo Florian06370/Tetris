@@ -41,6 +41,10 @@ public class PuzzleController implements Initializable{
 		assert lbNiveau != null : "fx:id=\"lbNiveau\" was not injected: check your FXML file 'Puzzle.fxml'.";
 	}
         
+        public void handleLaunchLibrairie(){
+                main.showLirairie();
+        }
+        
         
         
         

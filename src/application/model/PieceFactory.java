@@ -78,15 +78,35 @@ public class PieceFactory {
 			piece.setPivot(coord.get(3));
 			piece.setColor("cyan");
 			return piece;
-                case "i":
+                case "PIv":
                         coord.add(new int[]{0,0});
                         coord.add(new int[]{1,0});
 			coord.add(new int[]{2,0});
+                        piece = new Piece(coord);
+                        piece.setColor("orange");
+                        return(piece);
                         
-                case "bbi":
+                case "PIh":
+                        coord.add(new int[]{0,0});
+                        coord.add(new int[]{0,1});
+			coord.add(new int[]{0,2});
+                        piece = new Piece(coord);
+                        piece.setColor("orange");
+                        return(piece);
+                        
+                case "Piv":
                         coord.add(new int[]{0,0});
                         coord.add(new int[]{1,0});
+                        piece = new Piece(coord);
+                        piece.setColor("orange");
+                        return(piece);
                         
+                case "Pih":
+                        coord.add(new int[]{0,0});
+                        coord.add(new int[]{0,1});
+                        piece = new Piece(coord);
+                        piece.setColor("orange");
+                        return(piece);
 		}
 		return null;
 	}
