@@ -168,7 +168,8 @@ public class TetrisController implements Initializable {
         
         @FXML
         public void start(){
-                game.run();
+            
+                game.getTimeline().play();
         }
         
         
