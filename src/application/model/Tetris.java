@@ -151,6 +151,9 @@ public class Tetris {
                             case CONTROL:
 				newCoord = moveablePiece.rotate();
 				break;
+                            case UP:
+				newCoord = moveablePiece.rotate();
+				break;
                             case LEFT:
 				newCoord = moveablePiece.toLeft();
 				break;

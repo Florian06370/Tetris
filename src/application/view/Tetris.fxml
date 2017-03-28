@@ -37,5 +37,7 @@
       <GridPane fx:id="gridProchain" layoutX="434.0" layoutY="97.0" prefHeight="118.0" prefWidth="123.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="97.0" />
       <Button layoutX="453.0" layoutY="417.0" mnemonicParsing="false" onAction="#handleLaunchLibrairie" prefHeight="25.0" prefWidth="68.0" text="Quit" />
       <Button layoutX="453.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleLaunchTetris" prefHeight="25.0" prefWidth="68.0" text="Restart" />
+      <Button layoutX="453.0" layoutY="333.0" mnemonicParsing="false" onAction="#pause" prefHeight="15.0" prefWidth="28.0" text="II" />
+      <Button layoutX="493.0" layoutY="333.0" mnemonicParsing="false" onAction="#start" prefHeight="15.0" prefWidth="28.0" text="&gt;" />
    </children>
 </AnchorPane>

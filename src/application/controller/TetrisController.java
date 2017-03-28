@@ -161,6 +161,17 @@ public class TetrisController implements Initializable {
 		main.showTetris();
 	}
         
+        @FXML
+        public void pause(){
+                game.getTimeline().stop();                
+        }
+        
+        @FXML
+        public void start(){
+                game.run();
+        }
+        
+        
 	public void setMain(Main main) {
 		this.main = main;
 	}
