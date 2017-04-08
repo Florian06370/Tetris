@@ -13,14 +13,14 @@ import application.controller.PuzzleController;
  */
 public class Puzzle {
     
-    	private Piece[][] grid;     //grille du jeu
+    	private TetrisPiece[][] grid;     //grille du jeu
 	private String[] pieces = { "PIv", "PIh", "Piv", "Pih"};    //Tableau de toutes les pieces disponibles
-        private Piece piecev, pieceh, pieceJoueur;
+        private TetrisPiece piecev, pieceh, pieceJoueur;
         private int niveau;
         private PuzzleController observer;
 
         public Puzzle(){
-            this.grid = new Piece[5][5];
+            this.grid = new TetrisPiece[5][5];
             this.piecev = PieceFactory.getPiece("Piv");
             this.pieceh = PieceFactory.getPiece("Pih");
             this.pieceJoueur = PieceFactory.getPiece("Pih");

@@ -10,20 +10,22 @@ public class LibrairieController {
 	public void setMain(Main main){
 		this.main = main;
 	}
+        
+
 	
 	@FXML
 	public void handleLaunchTetris(){
-		main.showTetris();
+		main.toTetris();
 	}
 	
 	@FXML
 	public void handleLaunchBlokus(){
-		main.showBlokus();
+		main.toBlokus();
 	}
 	
 	@FXML
 	public void handleLaunchPuzzle(){
-		main.showPuzzle();
+		main.toPuzzle();
 	}
         
         

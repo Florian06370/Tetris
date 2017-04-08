@@ -152,13 +152,13 @@ public class TetrisController implements Initializable {
         @FXML
         public void handleLaunchLibrairie(){
                 game.getTimeline().stop();
-                main.showLirairie();
+                main.toLibrary();
         }
 
         @FXML
 	public void handleLaunchTetris(){
                 game.getTimeline().stop();
-		main.showTetris();
+		main.toTetris();
 	}
         
         @FXML

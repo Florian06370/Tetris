@@ -42,7 +42,7 @@ public class PuzzleController implements Initializable{
 	}
         
         public void handleLaunchLibrairie(){
-                main.showLirairie();
+                main.toLibrary();
         }
         
         

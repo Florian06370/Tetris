@@ -18,15 +18,15 @@ public class Tetris {
 	/**
 	 * Matrice de la grille
 	 */
-	private Piece[][] grid;     //grille du jeu
+	private TetrisPiece[][] grid;     //grille du jeu
 
-	private Piece[][] gridProchain;     //grille de la prochaine piece
+	private TetrisPiece[][] gridProchain;     //grille de la prochaine piece
 
-	private Piece nextPiece;    //Piece suivante
+	private TetrisPiece nextPiece;    //Piece suivante
 
-	private Piece moveablePiece;  //Pieces qui peuvent avoir un mouvement
+	private TetrisPiece moveablePiece;  //Pieces qui peuvent avoir un mouvement
 
-	private ArrayList<Piece> unmoveablePiece;   //Pieces qui ne devront plus bouger
+	private ArrayList<TetrisPiece> unmoveablePiece;   //Pieces qui ne devront plus bouger
 
 	private String[] pieces = { "S", "Z", "L", "J", "T", "O", "I"};    //Tableau de toutes les pieces disponibles
 
@@ -42,10 +42,10 @@ public class Tetris {
 
 	public Tetris() {
                 //grille du jeu
-		this.grid = new Piece[20][10];
+		this.grid = new TetrisPiece[20][10];
                 
                 //grille ou apparait la prochaine piece
-		this.gridProchain = new Piece[4][4];
+		this.gridProchain = new TetrisPiece[4][4];
 
                 //Selection de la piece suivante (aleatoirement)
 		int rnd = new Random().nextInt(pieces.length);
@@ -66,7 +66,7 @@ public class Tetris {
 			grid[coord[0]][coord[1]] = moveablePiece;
 		}
 
-		this.unmoveablePiece = new ArrayList<Piece>();
+		this.unmoveablePiece = new ArrayList<TetrisPiece>();
 
 		this.score = 0;
 
@@ -130,7 +130,7 @@ public class Tetris {
 				nextPiece = PieceFactory.getPiece(pieces[rnd]);
 
                                 //On place la nouvelle piece suivante a l'endroit prevu
-				gridProchain = new Piece[4][4];
+				gridProchain = new TetrisPiece[4][4];
 
 				for (int[] coord : nextPiece.getCoord()) {
 					gridProchain[coord[0]][coord[1]] = nextPiece;
@@ -214,7 +214,7 @@ public class Tetris {
         //fonction pour savoir si la partie est fini (perdu) 
 	private boolean checkGameOver() {
 		for (int j = 0; j < grid[0].length; j++) {
-			if (grid[0][j] instanceof Piece && grid[0][j] != moveablePiece) {
+			if (grid[0][j] instanceof TetrisPiece && grid[0][j] != moveablePiece) {
 				return true;
 			}
 		}
@@ -244,7 +244,7 @@ public class Tetris {
 			if (coord[1] < 0 || coord[1] >= grid[0].length) {
 				return false;
 			}
-			if (grid[coord[0]][coord[1]] instanceof Piece && grid[coord[0]][coord[1]] != moveablePiece) {
+			if (grid[coord[0]][coord[1]] instanceof TetrisPiece && grid[coord[0]][coord[1]] != moveablePiece) {
 				return false;
 			}
 		}
@@ -261,11 +261,11 @@ public class Tetris {
 
 	// GETTER
 
-	public Piece[][] getGrid() {
+	public TetrisPiece[][] getGrid() {
 		return grid;
 	}
 
-	public Piece[][] getGridProchain() {
+	public TetrisPiece[][] getGridProchain() {
 		return gridProchain;
 	}
 

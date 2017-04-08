@@ -11,7 +11,7 @@
          <graphic>
             <ImageView fitHeight="175.0" fitWidth="175.0">
                <image>
-                  <Image url="application/ressources/Tetris-Icon.png" />
+                  <Image url="application/resources/Tetris-Icon.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -19,7 +19,7 @@
          <graphic>
             <ImageView fitHeight="175.0" fitWidth="175.0">
                <image>
-                  <Image url="application/ressources/Blokus-Icon.png" />
+                  <Image url="application/resources/Blokus-Icon.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -27,7 +27,7 @@
          <graphic>
             <ImageView fitHeight="175.0" fitWidth="175.0">
                <image>
-                  <Image url="application/ressources/Puzzle-Icon.png" />
+                  <Image url="application/resources/Puzzle-Icon.png" />
                </image>
             </ImageView>
          </graphic></Button>
