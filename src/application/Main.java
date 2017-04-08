@@ -4,6 +4,7 @@ import application.controller.BlokusController;
 import java.io.IOException;
 
 import application.controller.LibrairieController;
+import application.controller.PuzzleController;
 import application.controller.TetrisController;
 import application.model.Tetris;
 import javafx.animation.KeyFrame;
@@ -25,6 +26,8 @@ public class Main extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    public Scene menu;
+    
 
     @Override
     public void start(Stage primaryStage) {
@@ -61,13 +64,16 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/Librairie.fxml"));
             AnchorPane librairie = (AnchorPane) loader.load();
+            menu = new Scene(librairie);
+            primaryStage.setScene(menu);
+            setTitle("Library: Choose your game!");
 
             LibrairieController controller = loader.getController();
             controller.setMain(this);
 
             rootLayout.setCenter(librairie);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Failed to open Library : /n"+e);
         }
     }
 
@@ -76,6 +82,8 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/Tetris.fxml"));
             AnchorPane tetris = (AnchorPane) loader.load();
+            this.primaryStage.setScene(new Scene(tetris));
+            setTitle("Tetris: Play!");
 
             Tetris game = new Tetris();
 
@@ -83,22 +91,14 @@ public class Main extends Application {
             controller.setMain(this);
             controller.setGame(game);
 
-            rootLayout.setCenter(tetris);
-
             controller.init();
-
-            primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-
-                @Override
-                public void handle(KeyEvent event) {
-                    game.handleKeyPressed(event.getCode());
-                }
-
+            primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+                game.handleKeyPressed(event.getCode());
             });
 
             game.run();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Failed to open Tetris : /n"+e);
         }
     }
 
@@ -117,10 +117,13 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/Puzzle.fxml"));
             AnchorPane puzzle = (AnchorPane) loader.load();
-
-            rootLayout.setCenter(puzzle);
+            this.primaryStage.setScene(new Scene(puzzle));
+            
+            
+            PuzzleController controller = loader.getController();
+            controller.setMain(this);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Failed to open Puzzle : /n"+e);
         }
     }
 

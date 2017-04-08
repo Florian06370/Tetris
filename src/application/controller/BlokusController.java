@@ -55,6 +55,8 @@ public class BlokusController extends Scene {
     private final boolean[] skip = {false, false, false, false};
     private final Group realRoot;
     private final Main parent;
+    
+    private Timeline timeline;
 
     /**
      * Creates a new Game, which is a Scene containing all the required graphics
@@ -154,6 +156,7 @@ public class BlokusController extends Scene {
 
         Button quitBtn = new Button("Quit");
         quitBtn.setOnAction(e -> {
+            timeline.stop();
             parent.toLibrary();
         });
         quitBtn.setMinSize(80, 40);
@@ -172,7 +175,7 @@ public class BlokusController extends Scene {
         blueHead.setMinSize(130, 30);
         blueHead.setMaxSize(130, 30);
         blueHead.setStyle("-fx-background-color: rgba(0, 0, 0, 0.30);");
-        Label blueLabel = new Label("00");
+        Label blueLabel = new Label("0");
         blueLabel.setTextFill(Color.valueOf("rgba(255,255,255,0.8)"));
         blueLabel.setLayoutX(100);
         blueLabel.setLayoutY(12);
@@ -210,7 +213,7 @@ public class BlokusController extends Scene {
         yellowHead.setMinSize(130, 30);
         yellowHead.setMaxSize(130, 30);
         yellowHead.setStyle("-fx-background-color: rgba(0, 0, 0, 0.30);");
-        Label yellowLabel = new Label("00");
+        Label yellowLabel = new Label("0");
         yellowLabel.setTextFill(Color.valueOf("rgba(255,255,255,0.8)"));
         yellowLabel.setLayoutX(100);
         yellowLabel.setLayoutY(12);
@@ -247,7 +250,7 @@ public class BlokusController extends Scene {
         redHead.setMinSize(130, 30);
         redHead.setMaxSize(130, 30);
         redHead.setStyle("-fx-background-color: rgba(0, 0, 0, 0.30);");
-        Label redLabel = new Label("00");
+        Label redLabel = new Label("0");
         redLabel.setTextFill(Color.valueOf("rgba(255,255,255,0.8)"));
         redLabel.setLayoutX(100);
         redLabel.setLayoutY(12);
@@ -284,7 +287,7 @@ public class BlokusController extends Scene {
         greenHead.setMinSize(130, 30);
         greenHead.setMaxSize(130, 30);
         greenHead.setStyle("-fx-background-color: rgba(0, 0, 0, 0.30);");
-        Label greenLabel = new Label("00");
+        Label greenLabel = new Label("0");
         greenLabel.setTextFill(Color.valueOf("rgba(255,255,255,0.8)"));
         greenLabel.setLayoutX(100);
         greenLabel.setLayoutY(12);
@@ -340,7 +343,7 @@ public class BlokusController extends Scene {
         boardM.setActive(true);
 
         // BEGIN!
-        Timeline timeline = new Timeline(new KeyFrame(
+        timeline = new Timeline(new KeyFrame(
                 Duration.millis(100),
                 ae -> transitionMove()));
         timeline.play();
@@ -438,21 +441,18 @@ public class BlokusController extends Scene {
         } else {
             final CountDownLatch latch = new CountDownLatch(1);
             final String[] move = new String[]{"."};
-            Thread t = new Thread(new Runnable() {
-                public void run() {
-                    move[0] = currentPlayer.isPlaying(boardM.toString());
-                    latch.countDown();
-                }
+            Thread t = new Thread(() -> {
+                move[0] = currentPlayer.isPlaying(boardM.toString());
+                latch.countDown();
             });
             t.start();
             try {
                 latch.await();
             } catch (InterruptedException e) {
-                e.printStackTrace();
             }
             t.interrupt();
 
-            Timeline timeline = new Timeline(new KeyFrame(
+            timeline = new Timeline(new KeyFrame(
                     Duration.millis(10000),
                     ae -> makeMove(move[0])));
             timeline.play();

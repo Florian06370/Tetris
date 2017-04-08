@@ -10,40 +10,53 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PuzzleController">
    <children>
-      <GridPane fx:id="gridView" layoutX="58.0" layoutY="82.0" prefHeight="214.0" prefWidth="482.0"/>
+      <GridPane fx:id="gridView" layoutX="58.0" layoutY="82.0" prefHeight="214.0" prefWidth="482.0">
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="215.0" fitWidth="482.0">
+               <image>
+                  <Image url="@../resources/ComingSoon.png" />
+               </image>
+            </ImageView>
+         </children></GridPane>
       <ImageView fitHeight="39.0" fitWidth="56.0" layoutX="165.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ressources/fleche-gauche_sansfond.png" />
+            <Image url="@../resources/fleche-gauche_sansfond.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="56.0" layoutX="476.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ressources/rollback-sansfond.png" />
+            <Image url="@../resources/rollback-sansfond.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="56.0" layoutX="347.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ressources/restart-sansfond.png" />
+            <Image url="@../resources/restart-sansfond.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="56.0" layoutX="204.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ressources/hint-sansfond.png" />
+            <Image url="@../resources/hint-sansfond.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="77.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ressources/pause-sansfond.png" />
+            <Image url="@../resources/pause-sansfond.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="56.0" layoutX="393.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ressources/fleche-droite-sansfond.png" />
+            <Image url="@../resources/fleche-droite-sansfond.png" />
          </image>
       </ImageView>
-      <Button layoutX="32.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Quit" />
+      <Button layoutX="32.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleLaunchLibrairie" prefHeight="25.0" prefWidth="66.0" text="Quit" />
       <Label layoutX="232.0" layoutY="17.0" text="Niveau">
          <font>
             <Font name="System Bold" size="24.0" />

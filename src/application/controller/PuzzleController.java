@@ -41,11 +41,14 @@ public class PuzzleController implements Initializable{
 		assert lbNiveau != null : "fx:id=\"lbNiveau\" was not injected: check your FXML file 'Puzzle.fxml'.";
 	}
         
+        @FXML
         public void handleLaunchLibrairie(){
                 main.toLibrary();
         }
         
-        
+        public void setMain(Main main) {
+		this.main = main;
+	}
         
         
         
